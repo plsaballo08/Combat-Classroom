@@ -68,7 +68,7 @@ export default function Login() {
               height={175}
             />
             <h1 className="text-xl">Philippine Army</h1>
-            <p className="text-3xl font-extrabold">Combined Arms center</p>
+            <p className="text-3xl font-extrabold">Combined Arms Center</p>
           </div>
         </div>
       )}
