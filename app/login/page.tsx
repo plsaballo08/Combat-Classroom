@@ -57,7 +57,7 @@ export default function Login() {
   return (
     <main className="flex h-screen">
       {!isMobile && (
-        <div className="w-[40%] bg-[#221F20] grid place-items-center">
+        <div className="w-[40%] bg-military-green grid place-items-center">
           <div className="text-white text-center flex flex-col gap-4">
             <Image
               className="m-auto"
@@ -136,11 +136,17 @@ export default function Login() {
                   </FormItem>
                 )}
               />
-              <div className="flex items-center">
-                <Checkbox id="rememberMe" className="mr-2" />
+              <div className="flex items-center text-gray-500 hover:text-gray-800">
+                <Checkbox
+                  id="rememberMe"
+                  className="mr-2 border-gray-500 hover:border-gray-800"
+                />
                 <label htmlFor="rememberMe">Remember me</label>
               </div>
-              <Button type="submit" className="w-full">
+              <Button
+                type="submit"
+                className="w-full bg-military-green font-semibold"
+              >
                 Log in
               </Button>
             </form>
