@@ -147,10 +147,7 @@ export default function Login() {
                 />
                 <label htmlFor="rememberMe">Remember me</label>
               </div>
-              <Button
-                type="submit"
-                className="w-full bg-military-green font-semibold"
-              >
+              <Button type="submit" className="w-full font-semibold">
                 Log in
               </Button>
             </form>
