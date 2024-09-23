@@ -17,6 +17,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useState, useEffect } from "react";
 
 const formSchema = z.object({
   username: z
@@ -27,6 +28,8 @@ const formSchema = z.object({
 });
 
 export default function Login() {
+  const [isMobile, setIsMobile] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -41,8 +44,21 @@ export default function Login() {
     // ✅ This will be type-safe and validated.
     console.log(values);
   }
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
   return (
-    <main className=" flex h-screen">
+    <main className="flex h-screen">
       <div className="w-[40%] bg-[#221F20] grid place-items-center">
         <div className="text-white text-center flex flex-col gap-4">
           <Image
