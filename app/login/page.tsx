@@ -59,24 +59,46 @@ export default function Login() {
 
   return (
     <main className="flex h-screen">
-      <div className="w-[40%] bg-[#221F20] grid place-items-center">
-        <div className="text-white text-center flex flex-col gap-4">
-          <Image
-            className="m-auto"
-            src="/logo.png"
-            alt="Philippine Army Logo"
-            width={175}
-            height={175}
-          />
-          <h1 className="text-xl">Philippine Army</h1>
-          <p className="text-3xl font-extrabold">Combined Arms center</p>
+      {!isMobile && (
+        <div className="w-[40%] bg-[#221F20] grid place-items-center">
+          <div className="text-white text-center flex flex-col gap-4">
+            <Image
+              className="m-auto"
+              src="/logo.png"
+              alt="Philippine Army Logo"
+              width={175}
+              height={175}
+            />
+            <h1 className="text-xl">Philippine Army</h1>
+            <p className="text-3xl font-extrabold">Combined Arms center</p>
+          </div>
         </div>
-      </div>
-      <div className="w-[60%] grid place-items-center">
-        <div className="w-[60%]">
+      )}
+      <div
+        className={`${isMobile ? "w-full" : "w-[60%]"} grid place-items-center`}
+      >
+        <div className={`${isMobile ? "w-[80%]" : "w-[60%]"}`}>
           <div className="mb-4 grid gap-2">
-            <p className="text-3xl font-extrabold">Login</p>
-            <p className="text-xl">Get access to different courses</p>
+            {!isMobile ? (
+              <>
+                <p className="text-3xl font-extrabold">Login</p>
+                <p className="text-xl">Get access to different courses</p>
+              </>
+            ) : (
+              <div className="text-center flex flex-col gap-2 mb-4">
+                <Image
+                  className="m-auto"
+                  src="/logo.png"
+                  alt="Philippine Army Logo"
+                  width={120}
+                  height={120}
+                />
+                <div>
+                  <h1>Philippine Army</h1>
+                  <p className="text-lg font-bold">Combined Arms center</p>
+                </div>
+              </div>
+            )}
           </div>
 
           <Form {...form}>
