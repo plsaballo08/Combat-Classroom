@@ -89,7 +89,7 @@ export default function Login() {
             ) : (
               <div className="text-center flex flex-col gap-2 mb-4">
                 <Image
-                  className="m-auto"
+                  className="m-auto mb-2"
                   src="/logo.png"
                   alt="Philippine Army Logo"
                   width={120}
@@ -104,12 +104,12 @@ export default function Login() {
           </div>
 
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <form onSubmit={form.handleSubmit(onSubmit)}>
               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="mb-4">
                     <FormLabel>Email</FormLabel>
                     <FormControl>
                       <Input placeholder="example@domain.com" {...field} />
@@ -125,7 +125,7 @@ export default function Login() {
                 control={form.control}
                 name="password"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="mb-8">
                     <FormLabel>Password</FormLabel>
                     <FormControl>
                       <PasswordInput field={field} />
@@ -137,13 +137,6 @@ export default function Login() {
                   </FormItem>
                 )}
               />
-              <div className="flex items-center text-gray-500 hover:text-gray-800">
-                <Checkbox
-                  id="rememberMe"
-                  className="mr-2 border-gray-500 hover:border-gray-800"
-                />
-                <label htmlFor="rememberMe">Remember me</label>
-              </div>
               <Button type="submit" className="w-full font-semibold">
                 Log in
               </Button>
