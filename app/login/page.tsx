@@ -20,10 +20,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useState, useEffect } from "react";
 
 const formSchema = z.object({
-  username: z
-    .string()
-    .min(2, "Username required")
-    .email("Invalid email format"),
+  email: z.string().min(2, "Email required").email("Invalid email format"),
   password: z.string().min(1, "Password required"),
 });
 
@@ -33,7 +30,7 @@ export default function Login() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      email: "",
       password: "",
     },
   });
@@ -82,7 +79,7 @@ export default function Login() {
             {!isMobile ? (
               <>
                 <p className="text-3xl font-extrabold">Login</p>
-                <p className="text-xl">Get access to different courses</p>
+                <p className="text-xl">Enter your credentials to continue</p>
               </>
             ) : (
               <div className="text-center flex flex-col gap-2 mb-4">
@@ -105,10 +102,10 @@ export default function Login() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
                 control={form.control}
-                name="username"
+                name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Username</FormLabel>
+                    <FormLabel>Email</FormLabel>
                     <FormControl>
                       <Input placeholder="example@domain.com" {...field} />
                     </FormControl>
@@ -144,7 +141,7 @@ export default function Login() {
                 <label htmlFor="rememberMe">Remember me</label>
               </div>
               <Button type="submit" className="w-full">
-                Sign in
+                Log in
               </Button>
             </form>
           </Form>
