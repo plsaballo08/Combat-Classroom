@@ -56,8 +56,8 @@ export default function Login() {
           <p className="text-3xl font-extrabold">Combined Arms center</p>
         </div>
       </div>
-      <div className="w-[60%] p-52">
-        <div>
+      <div className="w-[60%] grid place-items-center">
+        <div className="w-[60%]">
           <div className="mb-4 grid gap-2">
             <p className="text-3xl font-extrabold">Login</p>
             <p className="text-xl">Get access to different courses</p>
