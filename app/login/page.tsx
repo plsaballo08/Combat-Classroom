@@ -11,6 +11,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import PasswordInput from "@/components/auth/password-input";
 
 import Image from "next/image";
 import { z } from "zod";
@@ -127,11 +128,7 @@ export default function Login() {
                   <FormItem>
                     <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <Input
-                        type="password"
-                        placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
-                        {...field}
-                      />
+                      <PasswordInput field={field} />
                     </FormControl>
                     <FormDescription className="sr-only">
                       The email you use for your account.
