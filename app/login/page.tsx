@@ -72,7 +72,11 @@ export default function Login() {
         </div>
       )}
       <div
-        className={`${isMobile ? "w-full" : "w-[60%]"} grid place-items-center`}
+        className={`${
+          isMobile
+            ? "w-full flex justify-center mt-20"
+            : "w-[60%] grid place-items-center"
+        } `}
       >
         <div className={`${isMobile ? "w-[80%]" : "w-[60%]"}`}>
           <div className="mb-4 grid gap-2">
