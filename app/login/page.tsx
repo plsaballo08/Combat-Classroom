@@ -83,7 +83,7 @@ export default function Login() {
           <div className="mb-4 grid gap-2">
             {!isMobile ? (
               <>
-                <p className="text-3xl font-extrabold">Login</p>
+                <p className="text-3xl font-bold">Login</p>
                 <p className="text-xl">Enter your credentials to continue</p>
               </>
             ) : (
