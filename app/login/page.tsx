@@ -12,12 +12,12 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import PasswordInput from "@/components/auth/password-input";
+import Banner from "@/components/auth/banner";
+import FormHeader from "@/components/auth/form-header";
 
-import Image from "next/image";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
 
 const formSchema = z.object({
   email: z.string().min(2, "Email required").email("Invalid email format"),
@@ -25,8 +25,6 @@ const formSchema = z.object({
 });
 
 export default function Login() {
-  const [isMobile, setIsMobile] = useState(false);
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -42,64 +40,28 @@ export default function Login() {
     console.log(values);
   }
 
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    checkScreenSize();
-    window.addEventListener("resize", checkScreenSize);
-
-    // Cleanup event listener on component unmount
-    return () => window.removeEventListener("resize", checkScreenSize);
-  }, []);
-
   return (
     <main className="flex h-screen">
-      {!isMobile && (
-        <div className="w-[40%] bg-military-green grid place-items-center">
-          <div className="text-white text-center flex flex-col gap-4">
-            <Image
-              className="m-auto"
-              src="/logo.png"
-              alt="Philippine Army Logo"
-              width={175}
-              height={175}
-            />
-            <h1 className="text-xl">Philippine Army</h1>
-            <p className="text-3xl font-extrabold">Combined Arms Center</p>
-          </div>
-        </div>
-      )}
-      <div
-        className={`${
-          isMobile
-            ? "w-full flex justify-center mt-20"
-            : "w-[60%] grid place-items-center"
-        } `}
-      >
-        <div className={`${isMobile ? "w-[80%]" : "w-[60%]"}`}>
+      <div className="hidden sm:w-[40%] sm:bg-military-green sm:grid sm:place-items-center">
+        <Banner
+          wrapperClassName="text-white text-center flex flex-col gap-4"
+          width={175}
+          height={175}
+          headerClassName="text-xl"
+          paragraphClassName="text-3xl font-extrabold"
+        />
+      </div>
+      <div className="sm:w-[60%] sm:mt-0 w-full sm:grid sm:justify-normal sm:place-items-center flex justify-center mt-20">
+        <div className="w-[80%] sm:w-[60%]">
           <div className="mb-4 grid gap-2">
-            {!isMobile ? (
-              <>
-                <p className="text-3xl font-bold">Login</p>
-                <p className="text-xl">Enter your credentials to continue</p>
-              </>
-            ) : (
-              <div className="text-center flex flex-col gap-2 mb-4">
-                <Image
-                  className="m-auto mb-2"
-                  src="/logo.png"
-                  alt="Philippine Army Logo"
-                  width={120}
-                  height={120}
-                />
-                <div>
-                  <h1>Philippine Army</h1>
-                  <p className="text-lg font-bold">Combined Arms center</p>
-                </div>
-              </div>
-            )}
+            <FormHeader />
+            <Banner
+              wrapperClassName="sm:hidden text-center flex flex-col gap-2 mb-4"
+              width={120}
+              height={120}
+              headerClassName="mt-4"
+              paragraphClassName="text-lg font-bold"
+            />
           </div>
 
           <Form {...form}>
