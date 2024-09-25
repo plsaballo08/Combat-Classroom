@@ -26,6 +26,11 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <script
+          type="module"
+          defer
+          src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/dotPulse.js"
+        ></script>
         {children}
       </body>
     </html>
