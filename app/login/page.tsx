@@ -33,10 +33,8 @@ export default function Login() {
     },
   });
 
-  // Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+    // TODO: Handle form submission
     console.log(values);
   }
 
