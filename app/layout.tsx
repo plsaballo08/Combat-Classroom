@@ -9,7 +9,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Atlas",
+  title: { default: "Atlas", template: "%s | Atlas" },
   description: "E-learning system for Philippine Army Training Center",
 };
 
