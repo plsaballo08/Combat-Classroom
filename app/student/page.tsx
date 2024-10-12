@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Dashboard",
-  description: "Dashboard for the admin of Atlas",
+  description: "Dashboard for the students",
 };
 
-export default function AdminDashboard() {
+export default function Home() {
   return <div></div>;
 }
