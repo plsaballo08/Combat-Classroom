@@ -6,7 +6,7 @@ type Store = {
 };
 
 const useStore = create<Store>()((set) => ({
-  isMenuOpen: true,
+  isMenuOpen: false,
   setMenuState: () => set((state) => ({ isMenuOpen: !state.isMenuOpen })),
 }));
 
